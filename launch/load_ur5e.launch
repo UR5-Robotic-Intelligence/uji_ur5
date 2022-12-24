@@ -4,4 +4,6 @@
   <param name="robot_description" command="$(find xacro)/xacro '$(find uji_ur5)/urdf/ur5e.xacro'
       kinematics_params:=$(arg kinematics_params)"
       />
+  <node pkg="tf" type="static_transform_publisher" name="base_to_aruco_tf" args="0.08195365 -0.00050111 -0.14764314 1.5787232909562143 0.009180901421486762 1.5524856007774577 base_link aruco_base 10" />
+
 </launch>
