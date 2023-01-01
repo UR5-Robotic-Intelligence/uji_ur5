@@ -18,5 +18,8 @@
     Refer to 'inc/ur_macro.xacro' for more information.
   -->
   <xacro:include filename="$(find uji_ur5)/urdf/inc/ur5e_macro.xacro"/>
-  <xacro:ur5e_robot/>
+  <xacro:ur5e_robot
+    prefix=""
+    transmission_hw_interface="hardware_interface/PositionJointInterface"
+  />
 </robot>
