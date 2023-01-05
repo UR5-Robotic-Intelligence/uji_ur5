@@ -73,12 +73,6 @@
       </collision>
     </link>
 
-    <joint name="safety_wall_base_link" type="fixed">
-			<parent link="safety_wall"/>
-			<child link="base_link"/>
-			<origin xyz="0.0 -0.5 0.0" rpy="0 0 0"/>
-		</joint>
-
     <link name="table">
       <visual>
           <geometry>
@@ -93,11 +87,57 @@
       </collision>
     </link>
 
+    <link name="robot_base_table">
+      <visual>
+          <geometry>
+            <box size="0.6 0.6 0.02"/>
+          </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.6 0.6 0.02"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="robot_base_column">
+      <visual>
+          <geometry>
+            <box size="0.15 0.15 0.44"/>
+          </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.15 0.15 0.44"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="robot_base_table_column" type="fixed">
+			<parent link="robot_base_table"/>
+			<child link="robot_base_column"/>
+			<origin xyz="0 0 0.22" rpy="0 0 0"/>
+		</joint>
+
+    <joint name="robot_base_column_table" type="fixed">
+			<parent link="robot_base_column"/>
+			<child link="table"/>
+			<origin xyz="2 -0.15 0.02" rpy="0 0 0"/>
+		</joint>
+
     <joint name="table_safety_wall" type="fixed">
 			<parent link="table"/>
 			<child link="safety_wall"/>
 			<origin xyz="-2 0.55 0.2" rpy="0 0 0"/>
 		</joint> 
+
+    <joint name="safety_wall_base_link" type="fixed">
+			<parent link="safety_wall"/>
+			<child link="base_link"/>
+			<origin xyz="0.0 -0.4 0.0" rpy="0 0 0"/>
+		</joint>
 
     <!-- <link name="grip_tool0"/>
 
